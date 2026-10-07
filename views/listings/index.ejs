@@ -1,0 +1,24 @@
+<% layout("/layouts/boilerplate") %>
+
+<section class="wl-hero">
+  <p class="wl-eyebrow">Stays around the world</p>
+  <h1 class="wl-hero-title">Find a place you'll want to come back to</h1>
+  <p class="wl-hero-sub"><%= allListings.length %> places to stay, from beach cottages to city lofts.</p>
+</section>
+
+<div class="wl-grid">
+  <% for (let listing of allListings) { %>
+    <a href="/listings/<%= listing._id %>" class="wl-card">
+      <div class="wl-card-media">
+        <img src="<%= listing.image %>" alt="<%= listing.title %>" loading="lazy">
+      </div>
+      <div class="wl-card-body">
+        <div class="wl-card-top">
+          <h2 class="wl-card-title"><%= listing.title %></h2>
+        </div>
+        <p class="wl-card-place"><i class="fa-solid fa-location-dot"></i> <%= listing.location %>, <%= listing.country %></p>
+        <p class="wl-card-price"><strong>&#8377;<%= listing.price.toLocaleString("en-IN") %></strong> / night</p>
+      </div>
+    </a>
+  <% } %>
+</div>

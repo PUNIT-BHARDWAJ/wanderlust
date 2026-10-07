@@ -1,0 +1,420 @@
+/* WanderLust — Airbnb-style listings. Coral brand, Plus Jakarta Sans, Bootstrap 5 underneath. */
+
+:root {
+  --wl-coral: #fe424d;
+  --wl-coral-dark: #e3323d;
+  --wl-ink: #222222;
+  --wl-muted: #6a6a6a;
+  --wl-line: #ebebeb;
+  --wl-soft: #f7f7f7;
+  --wl-radius: 16px;
+}
+
+body {
+  font-family: "Plus Jakarta Sans", sans-serif !important;
+  color: var(--wl-ink);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: #fff;
+}
+
+body > .container {
+  flex: 1;
+  padding-top: 2rem;
+  padding-bottom: 4rem;
+}
+
+/* ---------- Navbar ---------- */
+.wl-nav {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--wl-line);
+  min-height: 4.5rem;
+}
+
+.wl-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--wl-coral) !important;
+  font-weight: 800;
+  font-size: 1.35rem;
+  letter-spacing: -0.02em;
+}
+
+.wl-brand .fa-compass {
+  font-size: 1.9rem;
+}
+
+.wl-nav .nav-link {
+  color: var(--wl-ink) !important;
+  font-weight: 500;
+  border-radius: 999px;
+  padding: 0.5rem 0.9rem !important;
+}
+
+.wl-nav .nav-link:hover {
+  background: var(--wl-soft);
+}
+
+/* ---------- Buttons ---------- */
+.wl-btn-primary {
+  background: var(--wl-coral) !important;
+  border: none !important;
+  color: #fff !important;
+  font-weight: 600 !important;
+  border-radius: 999px !important;
+  padding: 0.6rem 1.2rem !important;
+}
+
+.wl-btn-primary:hover {
+  background: var(--wl-coral-dark) !important;
+}
+
+.wl-btn-ghost {
+  background: #fff !important;
+  border: 1px solid var(--wl-ink) !important;
+  color: var(--wl-ink) !important;
+  font-weight: 600 !important;
+  border-radius: 999px !important;
+  padding: 0.6rem 1.2rem !important;
+}
+
+.wl-btn-ghost:hover {
+  background: var(--wl-soft) !important;
+}
+
+/* ---------- Hero ---------- */
+.wl-hero {
+  padding: 1.5rem 0 2rem;
+  max-width: 40rem;
+}
+
+.wl-eyebrow {
+  color: var(--wl-coral);
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.wl-hero-title {
+  font-weight: 800;
+  font-size: clamp(1.9rem, 1.2rem + 2.4vw, 2.8rem);
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin-bottom: 0.75rem;
+}
+
+.wl-hero-sub,
+.wl-muted {
+  color: var(--wl-muted);
+}
+
+/* ---------- Listing cards ---------- */
+.wl-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 2rem 1.5rem;
+}
+
+.wl-card {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
+.wl-card-media {
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: var(--wl-radius);
+  background: var(--wl-soft);
+}
+
+.wl-card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.wl-card:hover .wl-card-media img {
+  transform: scale(1.04);
+}
+
+.wl-card-body {
+  padding-top: 0.75rem;
+}
+
+.wl-card-title {
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0 0 0.15rem;
+}
+
+.wl-card-place {
+  color: var(--wl-muted);
+  font-size: 0.92rem;
+  margin: 0 0 0.25rem;
+}
+
+.wl-card-place i {
+  color: var(--wl-coral);
+  margin-right: 0.2rem;
+}
+
+.wl-card-price {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+/* ---------- Show page ---------- */
+.wl-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--wl-ink);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.92rem;
+  margin-bottom: 1.25rem;
+}
+
+.wl-back:hover {
+  color: var(--wl-coral);
+}
+
+.wl-show-head {
+  margin-bottom: 1.25rem;
+}
+
+.wl-show-title {
+  font-weight: 800;
+  font-size: clamp(1.6rem, 1.2rem + 1.6vw, 2.2rem);
+  letter-spacing: -0.02em;
+  margin-bottom: 0.35rem;
+}
+
+.wl-show {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+  gap: 2rem;
+  align-items: start;
+}
+
+.wl-show-media {
+  border-radius: var(--wl-radius);
+  overflow: hidden;
+  aspect-ratio: 16 / 10;
+  background: var(--wl-soft);
+}
+
+.wl-show-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.wl-panel {
+  position: sticky;
+  top: 6rem;
+  border: 1px solid var(--wl-line);
+  border-radius: var(--wl-radius);
+  padding: 1.5rem;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
+}
+
+.wl-panel-price {
+  font-size: 1.15rem;
+  margin-bottom: 0.75rem;
+}
+
+.wl-panel-desc {
+  color: var(--wl-muted);
+  line-height: 1.6;
+}
+
+.wl-panel-actions {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+}
+
+.wl-panel-actions form {
+  margin: 0;
+}
+
+/* ---------- Reviews ---------- */
+.wl-reviews {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+  gap: 3rem;
+  margin-top: 3rem;
+  padding-top: 2.5rem;
+  border-top: 1px solid var(--wl-line);
+}
+
+.wl-section-title {
+  font-weight: 700;
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+}
+
+.wl-range {
+  accent-color: var(--wl-coral);
+}
+
+.wl-range::-webkit-slider-thumb {
+  background: var(--wl-coral);
+}
+
+.wl-range::-moz-range-thumb {
+  background: var(--wl-coral);
+}
+
+.wl-range:focus::-webkit-slider-thumb {
+  box-shadow: 0 0 0 4px rgba(254, 66, 77, 0.2);
+}
+
+.wl-range-scale {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: var(--wl-muted);
+  padding: 0 0.2rem;
+}
+
+.wl-review-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.wl-review {
+  border: 1px solid var(--wl-line);
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+}
+
+.wl-stars {
+  color: var(--wl-coral);
+  margin-bottom: 0.4rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+}
+
+.wl-review-text {
+  margin: 0;
+}
+
+/* ---------- Forms ---------- */
+.wl-form-wrap {
+  max-width: 40rem;
+  margin: 0 auto;
+}
+
+.wl-form-card {
+  border: 1px solid var(--wl-line);
+  border-radius: var(--wl-radius);
+  padding: 2rem;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.06);
+}
+
+.wl-form-title {
+  font-weight: 800;
+  font-size: 1.7rem;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.25rem;
+}
+
+.form-control {
+  border-radius: 10px;
+  padding: 0.65rem 0.85rem;
+  border-color: #dddddd;
+}
+
+.form-control:focus {
+  border-color: var(--wl-ink);
+  box-shadow: 0 0 0 3px rgba(34, 34, 34, 0.08);
+}
+
+.form-label {
+  font-weight: 600;
+  font-size: 0.92rem;
+}
+
+/* ---------- Error ---------- */
+.wl-error {
+  max-width: 32rem;
+  margin: 3rem auto;
+  text-align: center;
+}
+
+.wl-error-icon {
+  font-size: 3rem;
+  color: var(--wl-coral);
+  margin-bottom: 1rem;
+}
+
+/* ---------- Footer ---------- */
+.wl-footer {
+  background: var(--wl-soft);
+  border-top: 1px solid var(--wl-line);
+  padding: 1.75rem 0;
+  font-size: 0.92rem;
+}
+
+.wl-footer-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.wl-footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.wl-footer-brand i {
+  color: var(--wl-coral);
+}
+
+.wl-footer-links {
+  display: flex;
+  gap: 1.25rem;
+}
+
+.wl-footer-links a {
+  color: var(--wl-ink);
+  text-decoration: none;
+}
+
+.wl-footer-links a:hover {
+  text-decoration: underline;
+}
+
+.wl-footer-socials {
+  display: flex;
+  gap: 0.9rem;
+  font-size: 1.3rem;
+}
+
+/* ---------- Small screens ---------- */
+@media (max-width: 767px) {
+  .wl-show,
+  .wl-reviews {
+    grid-template-columns: 1fr;
+  }
+
+  .wl-panel {
+    position: static;
+  }
+
+  .wl-form-card {
+    padding: 1.25rem;
+  }
+}

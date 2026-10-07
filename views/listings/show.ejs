@@ -1,0 +1,59 @@
+<% layout("/layouts/boilerplate") %>
+
+<a href="/listings" class="wl-back"><i class="fa-solid fa-arrow-left"></i> All stays</a>
+
+<header class="wl-show-head">
+  <h1 class="wl-show-title"><%= listing.title %></h1>
+  <p class="wl-card-place"><i class="fa-solid fa-location-dot"></i> <%= listing.location %>, <%= listing.country %></p>
+</header>
+
+<div class="wl-show">
+  <div class="wl-show-media">
+    <img src="<%= listing.image %>" alt="<%= listing.title %>">
+  </div>
+
+  <aside class="wl-panel">
+    <p class="wl-panel-price"><strong>&#8377;<%= listing.price.toLocaleString("en-IN") %></strong> / night</p>
+    <p class="wl-panel-desc"><%= listing.description %></p>
+    <div class="wl-panel-actions">
+      <a href="/listings/<%= listing._id %>/edit" class="btn wl-btn-primary"><i class="fa-regular fa-pen-to-square"></i> Edit</a>
+      <form method="post" action="/listings/<%= listing._id %>?_method=DELETE">
+        <button class="btn wl-btn-ghost"><i class="fa-regular fa-trash-can"></i> Delete</button>
+      </form>
+    </div>
+  </aside>
+</div>
+
+<section class="wl-reviews">
+  <div class="wl-review-form">
+    <h2 class="wl-section-title">Leave a review</h2>
+    <form action="/listings/<%= listing.id %>/reviews" method="post" novalidate class="needs-validation">
+      <label for="rating" class="form-label">Rating <span class="wl-muted">(1 to 5)</span></label>
+      <input type="range" min="1" max="5" id="rating" name="review[rating]" class="form-range wl-range">
+      <div class="wl-range-scale"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div>
+
+      <label for="comment" class="form-label mt-3">Comment</label>
+      <textarea name="review[comment]" id="comment" rows="4" class="form-control" placeholder="What was your stay like?" required></textarea>
+      <div class="invalid-feedback">Please add some comments for review</div>
+
+      <button class="btn wl-btn-primary mt-3">Submit review</button>
+    </form>
+  </div>
+
+  <div>
+    <h2 class="wl-section-title">All reviews <span class="wl-muted">(<%= listing.reviews.length %>)</span></h2>
+    <% if (listing.reviews.length === 0) { %>
+      <p class="wl-muted">No reviews yet. Be the first to leave one.</p>
+    <% } %>
+    <div class="wl-review-list">
+      <% for (let review of listing.reviews) { %>
+        <article class="wl-review">
+          <p class="wl-stars" aria-label="<%= review.rating %> out of 5 stars">
+            <% for (let i = 1; i <= 5; i++) { %><i class="fa-<%= i <= review.rating ? 'solid' : 'regular' %> fa-star"></i><% } %>
+          </p>
+          <p class="wl-review-text"><%= review.comment %></p>
+        </article>
+      <% } %>
+    </div>
+  </div>
+</section>
